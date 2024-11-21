@@ -277,7 +277,24 @@ def order_history():
     else:
         st.write("No orders yet.")
 
+def about_page():
+    st.title("About Us")
+    st.write("Welcome to our Coffee Shop App!")
+    st.write("Meet our team:")
+    team_data = {
+        "Name": [
+            "Muhammad Adib Aiman Bin Adihas",
+            "Amirur Rahmat Bin Abdul Hamid",
+            "Muhammad Adam Syahmi Bin Azaha"
+        ],
+        "Matric No": ["20001410", "21000886", "21002137"]
+    }
+    team_df = pd.DataFrame(team_data)
+    st.table(team_df)
+    st.write("We strive to provide the best coffee and user experience. Thank you for supporting us!")
+
 def main():
+    
     st.sidebar.title("Coffee Shop App")
     user_role = st.sidebar.radio("Choose Role", ["Customer", "Admin"])
     username = st.sidebar.text_input("Username")
@@ -286,18 +303,20 @@ def main():
     # Admin functionalities
     if user_role == "Admin" and username == "admin" and password == "admin123":
         st.sidebar.success("Logged in as Admin")
-        admin_option = st.sidebar.selectbox("Admin Menu", ["Dashboard", "Inventory Management", "Promotions & Discounts"])
+        admin_option = st.sidebar.selectbox("Admin Menu", ["Dashboard", "Inventory Management", "Promotions & Discounts", "About"])
         if admin_option == "Dashboard":
             admin_dashboard()
         elif admin_option == "Inventory Management":
             inventory_management()
         elif admin_option == "Promotions & Discounts":
             promotions_discounts()
+        elif admin_option == "About":
+            about_page()
 
     # Customer functionalities
     elif user_role == "Customer" and username and password:
         st.sidebar.success("Logged in as Customer")
-        customer_option = st.sidebar.selectbox("Customer Menu", ["Order Coffee", "Order History", "Give Feedback"])
+        customer_option = st.sidebar.selectbox("Customer Menu", ["Order Coffee", "Order History", "Give Feedback", "About"])
         if customer_option == "Order Coffee":
             customer_order()
             if st.session_state["orders"]:
@@ -306,6 +325,8 @@ def main():
             order_history()
         elif customer_option == "Give Feedback":
             feedback()
+        elif customer_option == "About":
+            about_page()
 
 if __name__ == "__main__":
     main()
