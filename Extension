@@ -1,6 +1,7 @@
 streamlit
 pandas
 plotly.express
+plotly
 datetime
 timedelta
 random
