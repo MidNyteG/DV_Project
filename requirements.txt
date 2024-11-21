@@ -6,6 +6,3 @@ timedelta
 random
 json
 fpdf
-FPDF
-sys
-subprocess
