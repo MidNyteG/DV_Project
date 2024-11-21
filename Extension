@@ -1,9 +1,11 @@
 streamlit
 pandas
-plotly
+plotly # Ensure this line is present
 datetime
 timedelta
 random
 json
 fpdf
 FPDF
+sys
+subprocess
