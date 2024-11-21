@@ -6,6 +6,17 @@ import random
 import json
 from fpdf import FPDF
 
+import sys
+import subprocess
+
+# Ensure plotly is installed
+try:
+    import plotly.express as px
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "plotly"])
+    import plotly.express as px
+
+
 # Define menu and inventory data
 coffee_menu = {
     "Americano": 5.00,
