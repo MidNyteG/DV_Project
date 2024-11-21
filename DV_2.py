@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import plotly as plt
 import plotly.express as px
 from datetime import datetime, timedelta
 import random
